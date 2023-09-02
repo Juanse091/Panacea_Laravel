@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+footer{
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid red; */
+    height: 482px;
+    justify-content: space-evenly;
+    background-color: #F5F5F5;
+}
+
+.informacion{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.info_titles{
+    font-family: 'Montserrat';
+    font-size: 28px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.info_text{
+    font-family: 'Montserrat';
+    font-size: 20px;
+    font-weight: 300;
+    text-align: left;
+    line-height: 50px;
+    color: black;
+    text-decoration: none;
+}
+
+.info_text:hover{
+    color: blue;
+}
+.redes_sociales{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #A32B2B;
+}
+
+.red_social{
+    width: 100px;
+}
+
+.metodos_pago{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.metodo{
+    width: 10%;
+}
+
+.visa{
+    width: 100px;
+}
+
+.master{
+    width: 100px;
+}
+
+.pse{
+    width: 75px;
+}
+
+.paypal{
+    width: 75px;
+}
+
+.mercado{
+    width: 90px;
+}
+
+/*? APARTADO MOVIL "390 PIXELES" */
+
+@media (max-width: 500px) {
+    footer{
+        display: flex;
+        flex-direction: column;
+        /* border: 2px solid red; */
+        height: 980px;
+        background-color: #F5F5F5;
+    }
+    
+    .informacion{
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        margin-left: 65px;
+    }
+
+    .info_titles{
+        font-family: 'Montserrat';
+        font-size: 20px;
+        font-weight: 700;
+        text-align: left;
+        margin-top: 20px;
+    }
+
+    .info_text{
+        font-family: 'Montserrat';
+        font-size: 16px;
+        font-weight: 300;
+        text-align: left;
+        line-height: 50px;
+    }
+
+    .redes_sociales{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        background-color: #A32B2B;
+        margin-top: 25px;
+    }
+
+    .red_social{
+        width: 80px;
+    }
+    
+    .metodos_pago{
+        flex-direction: column;
+    }
+    
+    .metodo{
+        position: relative;
+        width: auto;
+        padding-top: 20px;
+    }
+}

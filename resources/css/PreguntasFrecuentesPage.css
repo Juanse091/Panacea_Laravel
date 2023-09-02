@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+.PF_title{
+    font-size: 48px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    color: #A32B2B;
+    display: flex;
+    justify-content: left;
+    margin-left: 12%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.Pregunta{
+    background: #F5F5F5;
+    border-radius: 20px;
+    width: 60%;
+    margin-left: 12%;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.titulo_pregunta{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titulo_pregunta>h2{
+    color: black;
+    font-family: Montserrat;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.expandir_icon{
+    display:flex;
+    width: 25px;
+    height: 25px;
+    font-size: 24px;
+    color:white;
+    background-color: #A32B2B;
+    border-radius: 50%;
+}
+
+.Respuesta{
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    margin-top: 20px;
+    color: black;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 500;
+    display: none;
+}
+
+.pasos{
+    padding-left: 2.5%;
+    padding-top: 8px;
+}
+
+@media (max-width: 500px) {
+    
+    .PF_title{
+        font-size: 28px;
+        font-family: 'Montserrat';
+        font-weight: 700;
+        color: #A32B2B;
+        display: flex;
+        margin-left: 4%;
+        margin-top: 30px;
+        margin-bottom: 35px;
+    }
+
+    .Pregunta{
+        background: #F5F5F5;
+        border-radius: 10px;
+        width: 85%;
+        margin-left: 4%;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    
+    .titulo_pregunta>h2{
+        display: flex;
+        color: black;
+        font-family: Montserrat;
+        font-size: 18px;
+        font-weight: 600;
+        text-align: left;
+    }
+    
+    .Respuesta{
+        display: flex;
+        flex-direction: column;
+        text-align: justify;
+        margin-top: 20px;
+        color: black;
+        font-family: Montserrat;
+        font-size: 15px;
+        font-weight: 500;
+        display: none;
+    }
+    
+    .pasos{
+        padding-left: 2.5%;
+        padding-top: 8px;
+    }
+}

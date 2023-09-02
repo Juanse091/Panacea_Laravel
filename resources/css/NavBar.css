@@ -1,0 +1,237 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+header{
+    display: flex;
+    flex-direction: row;
+    /* border: 2px solid red; */
+    height: 120px;
+    justify-content: space-evenly;
+}
+
+.logo{
+    /* border: 2px solid yellowgreen; */
+    width: 30%;
+    margin-left: 25px;
+}
+
+.logo > img{
+    width: 264px;
+    height: 100px;
+}
+
+.nav{
+    /* border: 2px solid green; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.log{
+    /* border: 2px solid blue; */
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.division{
+    width: 100%;
+    height: 45px;
+    background-color: #A32B2B;
+}
+.search_container{
+    position: relative;
+    width: 85%;
+    margin-left: auto;
+}
+.search_bar{
+    width: 100%;
+    height: 51px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-color: #EEEEEE;
+    font-size: 24px;
+    padding-left: 10px;
+    border: none;
+}
+
+.search_icon{
+    position: absolute;
+    color: #A32B2B;
+    font-size: 32px;
+    top: 19.2%;
+    right: 1.2%;
+}
+
+.login_container{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 235px;
+    left: 10%; 
+}
+
+.login{
+    width: 100%;
+    height: 51px;
+    background: #EEEEEE;
+    border-radius: 36px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.texto_login {
+    color: #8D8D8D;
+    font-family: "Montserrat";
+    font-size: 24px;
+    position: relative;
+    margin-left: 15px;
+}
+
+.login_icon{
+    font-size: 48.2px;
+    color: #A32B2B;
+    position: absolute;
+    right: 0%;
+}
+
+.shop_container{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 110px;
+    left: 10%; 
+}
+
+.shoppingcart{
+    width: 90%;
+    height: 51px;
+    background: #EEEEEE;
+    border-radius: 36px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shop_icon{
+    font-size: 48.2px;
+    color: #A32B2B;
+    position: relative;
+}
+
+.counter{
+    height: 21px;
+    width: 20%;
+    border-radius: 100%;
+    background-color: white;
+    position: absolute;
+    bottom:0px;
+    right:15px;
+}
+
+.quant{
+    font-family: "Montserrat";
+    font-weight: bold;
+}
+
+
+/*? APARTADO MOVIL "390 PIXELES" */
+
+@media (max-width: 500px) {
+    header{
+        height: 55px;
+        display: flex;
+        align-items: center;
+    }
+
+    .logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* border: 2px solid yellowgreen; */
+        width: 111px;
+        height: 43px;
+        margin: 4px 6px;
+    }
+    
+    .logo > img{
+        width: 111px;
+        height: 43px;
+    }
+
+    
+    .nav{
+        width: 100%;
+        justify-content: center;
+    }
+    .search_container{
+        width: 137px;
+    }
+    
+    .search_bar{
+        height: 18px;
+        font-size: 8px;
+    }
+    
+    .search_icon{
+        top: 30%;
+        left: 90%;
+        font-size: 10px;
+    }
+    
+    .login_container{
+        width: 30%;
+        height: 30px;
+        left: 5px;
+    }
+    
+    
+    .login{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        background-color: #fff;
+    }
+    
+    .login_icon{
+        font-size: 25px;
+        left: 0;
+    }
+    
+    .shop_container{
+        width: 50%;
+        height: 30px;
+        margin-right: 10px;
+    }
+    .shop_icon{
+        position: relative;
+        font-size: 25px;
+        left: 0;
+    }
+
+    .shoppingcart{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    
+    .texto_login {
+        display: none;
+    }
+
+    .counter{
+        width: 9px;
+        height: 9px;
+        font-size: 11px;
+        right: 9px;
+    }
+}
