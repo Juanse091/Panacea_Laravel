@@ -3,6 +3,9 @@ import '../css/app.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';  
 
 
+
+
+import Swiper from 'swiper/bundle';
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';

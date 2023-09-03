@@ -1,16 +1,12 @@
-<script setup>
-    import {
-        Head,
-        Link
-    } from '@inertiajs/vue3';
 
-    import PanaceaLayout from '../Layouts/PanaceaLayout.vue'
+    <script setup>
+            import {Head,Link} from '@inertiajs/vue3';
 
-    defineProps({
+            import PanaceaLayout from '../Layouts/PanaceaLayout.vue'
+    </script>
 
-    });
-</script>
 <template>
+
     <Head title="Welcome"></Head>
     <PanaceaLayout>
         <section class="ads">
@@ -47,47 +43,67 @@
         <section class="featured_section">
             <h2 class="title"> PRODUCTOS DESTACADOS</h2>
             <div class="fp_container">
-                <div class="arrow_container">
-                    <i class="bi bi-chevron-compact-left arrow"></i>
-                </div>
-                <article class="product">
-                    <img src="../../img/Acetaminofen.png" alt="">
-                    <hr>
-                    <p>Acetaminofén</p>
-                    <p>⭐⭐⭐⭐⭐</p>
-                    <p>$16.500</p>
-                    <Link href="/medicamentos" class="btn_buy">
+
+                  <swiper
+                    :slidesPerView="3"
+                    :spaceBetween="50"
+                    :navigation="true"
+                    :breakpoints="{
+                        '600': {
+                            slidesPerView: 3,
+                        },
+                        '100': {
+                            slidesPerView: 1,
+                        }
+                    }"
+                    :modules="modules"
+                    @autoplayTimeLeft="onAutoplayTimeLeft"
+                    class="mySwiper"
+                >
+                    <swiper-slide class="product">
+                        <img src="../../img/Acetaminofen.png" alt="">
+                        <hr>
+                        <p>Acetaminofén</p>
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p>$16.500</p>
+                        <Link href="/medicamentos" class="btn_buy">
                         Comprar
-                    </Link>
-                </article>
-                <article class="product">
-                    <img src="../../img/DolexGripa.png" alt="">
-                    <hr> 
-                    <p>Dolex gripa</p>
-                    <p>⭐⭐⭐⭐⭐</p>
-                    <p>$12.200</p>
-                    <Link href="/medicamentos" class="btn_buy">
+                        </Link>
+                    </swiper-slide>
+                    <swiper-slide class="product">
+                        <img src="../../img/Olmetec.png" alt="">
+                        <hr>
+                        <p>Olmetec 20mg</p>
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p>$24.350</p>
+                        <Link href="/medicamentos" class="btn_buy">
                         Comprar
-                    </Link>
-                    <!-- <router-link to="/medicamentos">
-                    </router-link> -->
-                </article>
-                <article class="product display_none">
-                    <img src="../../img/Olmetec.png" alt="">
-                    <hr>
-                    <p>Olmetec 20mg</p>
-                    <p>⭐⭐⭐⭐⭐</p>
-                    <p>$24.350</p>
-                    <Link href="/medicamentos" class="btn_buy">
+                        </Link>
+                    </swiper-slide>
+                    <swiper-slide class="product">
+                        <img src="../../img/DolexGripa.png" alt="">
+                        <hr>
+                        <p>Dolex gripa</p>
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p>$12.200</p>
+                        <Link href="/medicamentos" class="btn_buy">
                         Comprar
-                    </Link>
-                </article>
-                <div class="arrow_container">
-                    <i class="bi bi-chevron-compact-right arrow"></i>
-                </div>
+                        </Link>
+                    </swiper-slide>
+                    <swiper-slide class="product">
+                        <img src="../../img/Acetaminofen.png" alt="">
+                        <hr>
+                        <p>Acetaminofén</p>
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p>$16.500</p>
+                        <Link href="/medicamentos" class="btn_buy">
+                        Comprar
+                        </Link>
+                    </swiper-slide>
+                </swiper>
             </div>
         </section>
-    
+
         <section class="partners_section">
             <h2 class="title">NUESTROS SOCIOS</h2>
             <div class="partners_container">
@@ -101,6 +117,29 @@
 </template>
 
 <script>
+  // Import Swiper Vue.js components
+  import { Swiper, SwiperSlide } from 'swiper/vue';
+
+  // Import Swiper styles
+  import 'swiper/css';
+
+  import 'swiper/css/pagination';
+  import 'swiper/css/navigation';
+
+  // import required modules
+  import {Navigation } from 'swiper/modules';
+
+  export default {
+    components: {
+      Swiper,
+      SwiperSlide,
+    },
+    setup() {
+      return {
+        modules: [Navigation],
+      };
+    },
+  };
 </script>
 
 <style scoped>
@@ -109,4 +148,6 @@
     .custom-font {
         font-family: 'Montserrat', sans-serif;
     }
+    
+
 </style>
