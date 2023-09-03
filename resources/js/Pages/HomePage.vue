@@ -2,7 +2,11 @@
     <script setup>
             import {Head,Link} from '@inertiajs/vue3';
 
-            import PanaceaLayout from '../Layouts/PanaceaLayout.vue'
+            import PanaceaLayout from '../Layouts/PanaceaLayout.vue';
+
+            defineProps({
+                
+            })
     </script>
 
 <template>
@@ -60,45 +64,8 @@
                     @autoplayTimeLeft="onAutoplayTimeLeft"
                     class="mySwiper"
                 >
-                    <swiper-slide class="product">
-                        <img src="../../img/Acetaminofen.png" alt="">
-                        <hr>
-                        <p>Acetaminofén</p>
-                        <p>⭐⭐⭐⭐⭐</p>
-                        <p>$16.500</p>
-                        <Link href="/medicamentos" class="btn_buy">
-                        Comprar
-                        </Link>
-                    </swiper-slide>
-                    <swiper-slide class="product">
-                        <img src="../../img/Olmetec.png" alt="">
-                        <hr>
-                        <p>Olmetec 20mg</p>
-                        <p>⭐⭐⭐⭐⭐</p>
-                        <p>$24.350</p>
-                        <Link href="/medicamentos" class="btn_buy">
-                        Comprar
-                        </Link>
-                    </swiper-slide>
-                    <swiper-slide class="product">
-                        <img src="../../img/DolexGripa.png" alt="">
-                        <hr>
-                        <p>Dolex gripa</p>
-                        <p>⭐⭐⭐⭐⭐</p>
-                        <p>$12.200</p>
-                        <Link href="/medicamentos" class="btn_buy">
-                        Comprar
-                        </Link>
-                    </swiper-slide>
-                    <swiper-slide class="product">
-                        <img src="../../img/Acetaminofen.png" alt="">
-                        <hr>
-                        <p>Acetaminofén</p>
-                        <p>⭐⭐⭐⭐⭐</p>
-                        <p>$16.500</p>
-                        <Link href="/medicamentos" class="btn_buy">
-                        Comprar
-                        </Link>
+                    <swiper-slide class="product" v-for="producto in productos" key="producto.id">
+                        <product :nombre="producto.Nombre_Producto"  :precio="producto.Precio"></product>
                     </swiper-slide>
                 </swiper>
             </div>
@@ -117,19 +84,27 @@
 </template>
 
 <script>
-  // Import Swiper Vue.js components
   import { Swiper, SwiperSlide } from 'swiper/vue';
-
-  // Import Swiper styles
   import 'swiper/css';
-
   import 'swiper/css/pagination';
   import 'swiper/css/navigation';
-
-  // import required modules
   import {Navigation } from 'swiper/modules';
-
+  import product from '@/Components/Panacea/Producto.vue'
+  
+  import axios from 'axios';
   export default {
+    data(){
+        return {
+            productos:[]
+        }
+    },
+    mounted() {
+
+        axios.get('/productosDest')
+        .then((response) => {
+            this.productos = response.data
+        });
+    },
     components: {
       Swiper,
       SwiperSlide,
