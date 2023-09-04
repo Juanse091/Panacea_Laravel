@@ -7,7 +7,10 @@
     import PanaceaLayout from '../Layouts/PanaceaLayout.vue'
 
     defineProps({
-
+        id: Object,
+        producto: Object,
+        nombreCategoria: Object,
+        nombreTipo: Object,
     });
 </script>
 <template>
@@ -20,7 +23,7 @@
         <section class="medicamento">
             <img class="img_medicamento" src="../../img/DolexGripa.png" alt="#">
             <div class="info_medicamento">
-                <h1>Dolex Gripa</h1>
+                <h1>{{ producto.Nombre_Producto}}</h1>
                 <div class="puntuacion">
                     <i class="bi bi-star-fill star_icon"></i>
                     <i class="bi bi-star-fill star_icon"></i>
@@ -29,7 +32,7 @@
                     <i class="bi bi-star-fill star_icon"></i>
                     <p>5.0 (85)</p>
                 </div>
-                <h2>$12.200</h2>
+                <h2>${{ producto.Valor_Unitario }}</h2>
                 <div class="cantidad">
                     <i class="bi bi-dash minus_icon" id="minus" @click="minus()"></i>
                     <input id="quantity" type="text" class="quantity" maxlength="45" value="1">
@@ -52,36 +55,32 @@
         <section class="ficha_tecnica">
             <div class="tabla_tecnica">
                 <div class="row_type1">
-                    <p class="categorie">Lorem Ipsum: </p>
-                    <p>dolor sit amet</p>
+                    <p class="categorie">Marca: </p>
+                    <p>{{ producto.Marca }}</p>
                 </div>
                 <div class="row_type2">
-                    <p class="categorie">Lorem Ipsum: </p>
-                    <p>dolor sit amet</p>
+                    <p class="categorie">Pais: </p>
+                    <p>{{ producto.Pais_Produccion }}</p>
                 </div>
                 <div class="row_type1">
-                    <p class="categorie">Lorem Ipsum: </p>
-                    <p>dolor sit amet</p>
+                    <p class="categorie">Cantidad: </p>
+                    <p>{{ producto.Cantidad }}</p>
                 </div>
                 <div class="row_type2">
-                    <p class="categorie">Lorem Ipsum: </p>
-                    <p>dolor sit amet</p>
+                    <p class="categorie">Público: </p>
+                    <p>{{ producto.Publico }}</p>
                 </div>
                 <div class="row_type1">
-                    <p class="categorie">Lorem Ipsum: </p>
-                    <p>dolor sit amet</p>
+                    <p class="categorie">Categoria: </p>
+                    <p>{{ nombreCategoria }}</p>
                 </div>
                 <div class="row_type2">
-                    <p class="categorie">Lorem Ipsum: </p>
-                    <p>dolor sit amet</p>
-                </div>
-                <div class="row_type1">
-                    <p class="categorie">Lorem Ipsum: </p>
-                    <p>dolor sit amet</p>
+                    <p class="categorie">Tipo: </p>
+                    <p>{{ nombreTipo }}</p>
                 </div>
             </div>
             <div class="descripcion">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel dictum augue. Sed enim orci, feugiat sit amet consectetur sit amet, dictum eu lacus. Maecenas id risus at tellus euismod suscipit fringilla et mauris. Nulla facilisi. Nullam id sem eget velit gravida faucibus et nec orci. Pellentesque tellus nibh, mattis at pellentesque sed, mollis in sapien. Curabitur consectetur vulputate libero, ac maximus ipsum vulputate a. Nulla a ante et mauris hendrerit egestas eu vitae sapien. Phasellus a magna nulla. Duis dignissim at velit sit amet scelerisque. Vivamus interdum lectus id vestibulum blandit. Aliquam in erat dapibus, aliquam metus sed, blandit dui. Proin sit amet mi mollis, blandit libero in, fringilla orci. Pellentesque euismod nisl vel lacus fermentum, varius gravida ex fermentum. In risus elit, mollis nec leo eget, maximus fringilla risus.</p>
+                <p>{{ producto.Descripcion_Producto }}</p>
             </div>
         </section>
     </PanaceaLayout>
@@ -109,7 +108,6 @@
                 const quantity = document.getElementById('quantity')
                 let value = parseInt(quantity.value);
                 const minus = document.getElementById('minus');
-                console.log(value);
                 value = value - 1;
                 quantity.value = value;
                 if(value <= 1){

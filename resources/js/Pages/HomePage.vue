@@ -19,28 +19,31 @@
         <section class="categories_section">
             <h2 class="custom-font title">CATEGORIAS</h2>
             <div class="categories_container">
-                <div class="arrow_container">
-                    <i class="bi bi-chevron-compact-left arrow"></i>
-                </div>
-                <article class="categories">
-                    <img src="../../img/medicamentos.png" alt="">
-                    <p class="txt_categorie"> Categoria 1 </p>
-                </article>
-                <article class="categories">
-                    <img src="../../img/medicamentos.png" alt="">
-                    <p class="txt_categorie"> Categoria 2 </p>
-                </article>
-                <article class="categories display_none">
-                    <img src="../../img/medicamentos.png" alt="">
-                    <p class="txt_categorie"> Categoria 3 </p>
-                </article>
-                <article class="categories display_none">
-                    <img src="../../img/medicamentos.png" alt="">
-                    <p class="txt_categorie"> Categoria 4 </p>
-                </article>
-                <div class="arrow_container">
-                    <i class="bi bi-chevron-compact-right arrow"></i>
-                </div>
+                <swiper
+                    :slidesPerView="3"
+                    :spaceBetween="50"
+                    :pagination="{
+                        clickable: true,
+                    }"
+                    :navigation="{nextEl: '.swiper-button-next.custom-button', prevEl: '.swiper-button-prev.custom-button'}"
+                    :breakpoints="{
+                        '600': {
+                            slidesPerView: 3,
+                        },
+                        '100': {
+                            slidesPerView: 1,
+                        }
+                    }"
+                    :modules="modules"
+                    class="mySwiper"
+                >
+                <div class="swiper-button-next custom-button"></div>
+                <div class="swiper-button-prev custom-button"></div>
+                
+                    <swiper-slide  v-for="categoria in categorias" key="categoria.ID">
+                        <categorie :nombre="categoria.Nombre_Categoria"></categorie>
+                    </swiper-slide>
+                </swiper>
             </div>
         </section>
 
@@ -61,9 +64,11 @@
                         }
                     }"
                     :modules="modules"
-                    @autoplayTimeLeft="onAutoplayTimeLeft"
                     class="mySwiper"
                 >
+                    <swiper-slide v-for="producto in productos" key="producto.id">
+                        <product :nombre="producto.Nombre_Producto"  :precio="producto.Precio" :id="producto.Codigo"></product>
+                    </swiper-slide>
                     <swiper-slide class="product" v-for="producto in productos" key="producto.id">
                         <product :nombre="producto.Nombre_Producto"  :precio="producto.Precio"></product>
                     </swiper-slide>
@@ -88,21 +93,24 @@
   import 'swiper/css';
   import 'swiper/css/pagination';
   import 'swiper/css/navigation';
-  import {Navigation } from 'swiper/modules';
+  import {Navigation, Pagination } from 'swiper/modules';
   import product from '@/Components/Panacea/Producto.vue'
+  import categorie from '@/Components/Panacea/CategorieBox.vue'
   
   import axios from 'axios';
   export default {
     data(){
         return {
-            productos:[]
+            productos:[],
+            categorias:[]
         }
     },
     mounted() {
 
         axios.get('/productosDest')
         .then((response) => {
-            this.productos = response.data
+            this.productos = response.data.productos_destacados;
+            this.categorias = response.data.categorias;
         });
     },
     components: {
@@ -111,7 +119,7 @@
     },
     setup() {
       return {
-        modules: [Navigation],
+        modules: [Navigation, Pagination],
       };
     },
   };

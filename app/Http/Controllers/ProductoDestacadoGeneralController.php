@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ProductoDestacadoGeneral;
+use App\Models\Categoria;
 
 class ProductoDestacadoGeneralController extends Controller
 {
@@ -13,7 +14,14 @@ class ProductoDestacadoGeneralController extends Controller
     public function index()
     {
         $prod_Dest = ProductoDestacadoGeneral::all();
-        return response()->json($prod_Dest);
+        $categorie = Categoria::all();
+
+        $data =[
+            'productos_destacados' => $prod_Dest,
+            'categorias' => $categorie,
+        ];
+
+        return response()->json($data);
     }
 
     /**

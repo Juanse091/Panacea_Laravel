@@ -1,3 +1,7 @@
+<script setup>
+    import {Head,Link} from '@inertiajs/vue3';
+</script>
+
 <template>
     <article class="product">
         <img src="https://drive.google.com/uc?export=download&id=1Cpg8TJZbTaakDPMj4IsMlRTVnp5MWtxB" alt="">
@@ -11,25 +15,28 @@
             <i class="bi bi-star-fill star_icon"></i>
         </div>
         <p>${{ precio }}</p>
-        <router-link  to="/medicamentos">
+        <Link :href="`/medicamento/${id}`">
             <button class="btn_buy">Comprar</button>
-        </router-link>
+        </Link>
     </article>
 </template>
 
 <script>
-export default{
-    props:[
-        'nombre',
-        'precio'
-    ]
-}
+    export default {
+        props:[
+            'nombre',
+            'precio',
+            'id'
+        ]
+    }
 
 </script>
 
 <style scoped>
 
 .product{
+    position: relative;
+    bottom: 2px;
     display: flex;
     flex-direction: column;
     padding: 30px 50px;
@@ -41,7 +48,6 @@ export default{
 
 .product > img{
     position: relative;
-    margin-top: 30px;
     left: 50%;
     transform: translateX(-50%);
     width: 182px;
@@ -89,7 +95,9 @@ export default{
 
 @media (max-width: 500px) {
     .product{
-        padding: 20px;
+        position: relative;
+        bottom: 1px;
+        padding: 30px 60px;
         justify-content: center;
         border-radius: 15px;
         /* align-items: center; */
