@@ -4,7 +4,7 @@
 
 <template>
     <article class="product">
-        <img src="https://drive.google.com/uc?export=download&id=1Cpg8TJZbTaakDPMj4IsMlRTVnp5MWtxB" alt="">
+        <img :src="`${img}`" alt="">
         <hr>
         <p class="product_name">{{ nombre }}</p>
         <div class="puntuacion">
@@ -26,8 +26,9 @@
         props:[
             'nombre',
             'precio',
-            'id'
-        ]
+            'id',
+            'img'
+        ],
     }
 
 </script>
@@ -51,8 +52,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: 182px;
-    height: 60%;
-    object-fit: cover;
+    height: 182px;
 }
 
 .product_name{

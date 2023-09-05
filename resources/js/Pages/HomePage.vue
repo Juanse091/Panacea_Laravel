@@ -41,7 +41,7 @@
                 <div class="swiper-button-prev custom-button"></div>
                 
                     <swiper-slide  v-for="categoria in categorias" key="categoria.ID">
-                        <categorie :nombre="categoria.Nombre_Categoria"></categorie>
+                        <categorie :nombre="categoria.Nombre_Categoria" :img="categoria.URL_Img"></categorie>
                     </swiper-slide>
                 </swiper>
             </div>
@@ -67,10 +67,7 @@
                     class="mySwiper"
                 >
                     <swiper-slide v-for="producto in productos" key="producto.id">
-                        <product :nombre="producto.Nombre_Producto"  :precio="producto.Precio" :id="producto.Codigo"></product>
-                    </swiper-slide>
-                    <swiper-slide class="product" v-for="producto in productos" key="producto.id">
-                        <product :nombre="producto.Nombre_Producto"  :precio="producto.Precio"></product>
+                        <product :nombre="producto.Nombre_Producto" :img="producto.URL_Img" :precio="producto.Precio" :id="producto.Codigo"></product>
                     </swiper-slide>
                 </swiper>
             </div>

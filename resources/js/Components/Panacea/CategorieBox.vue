@@ -7,7 +7,7 @@
 </script>
 <template>
     <article class="categories">
-        <img src="../../../img/medicamentos.png" alt="">
+        <img :src="`${img}`" alt="">
         <Link  href="/Categorie" style="text-decoration: none;">
             <p class="txt_categorie"> {{ nombre }} </p>
         </Link>

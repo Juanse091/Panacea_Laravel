@@ -100,6 +100,7 @@
     height: 45px;
     border-radius: 8px;
     cursor: pointer;
+    margin-bottom: 20px;
 }
 
 .comprar>p{
@@ -189,6 +190,10 @@
     margin-left: 8%;
     text-align: justify;
 }
+.img_medicamento{
+    height: auto;
+    width: 320px;
+}
 
 @media (max-width: 500px) {
     .medicamento{
@@ -211,7 +216,6 @@
         margin-top: 2%;
         flex-direction: column;
         padding-left: 5%;
-        padding-right: 25%;
         width: auto;
     }
     

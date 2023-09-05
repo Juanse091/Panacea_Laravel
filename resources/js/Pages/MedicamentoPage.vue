@@ -21,7 +21,7 @@
         </Link>
 
         <section class="medicamento">
-            <img class="img_medicamento" src="../../img/DolexGripa.png" alt="#">
+            <img class="img_medicamento" :src="`${producto.Imagen_Prod}`" alt="#">
             <div class="info_medicamento">
                 <h1>{{ producto.Nombre_Producto}}</h1>
                 <div class="puntuacion">
