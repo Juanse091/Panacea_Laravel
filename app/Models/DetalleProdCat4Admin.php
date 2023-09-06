@@ -6,7 +6,6 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -32,8 +31,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $Alto_Item
  * @property string|null $Ancho_Item
  * @property string|null $Profundidad_Item
- * @property string|null $user_ultmod
- * @property Carbon|null $fecha_ultmod
  * @property int|null $Estrellas_Total
  * @property int|null $Total_Per_Votos
  *
@@ -53,7 +50,6 @@ class DetalleProdCat4Admin extends Model
 		'Precio' => 'float',
 		'VentaLibre' => 'int',
 		'Unidades_Paquete' => 'int',
-		'fecha_ultmod' => 'datetime',
 		'Estrellas_Total' => 'int',
 		'Total_Per_Votos' => 'int'
 	];
@@ -79,8 +75,6 @@ class DetalleProdCat4Admin extends Model
 		'Alto_Item',
 		'Ancho_Item',
 		'Profundidad_Item',
-		'user_ultmod',
-		'fecha_ultmod',
 		'Estrellas_Total',
 		'Total_Per_Votos'
 	];

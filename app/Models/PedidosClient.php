@@ -10,29 +10,31 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Venta
+ * Class PedidosClient
  * 
  * @property int $ID
- * @property Carbon $Date_Venta
- * @property float $Total
+ * @property int|null $No_Orden
+ * @property Carbon $Fecha_Venta
+ * @property string $Estado_Factura
  *
  * @package App\Models
  */
-class Venta extends Model
+class PedidosClient extends Model
 {
-	protected $table = 'ventas';
+	protected $table = 'pedidos_client';
 	public $incrementing = false;
 	public $timestamps = false;
 
 	protected $casts = [
 		'ID' => 'int',
-		'Date_Venta' => 'datetime',
-		'Total' => 'float'
+		'No_Orden' => 'int',
+		'Fecha_Venta' => 'datetime'
 	];
 
 	protected $fillable = [
 		'ID',
-		'Date_Venta',
-		'Total'
+		'No_Orden',
+		'Fecha_Venta',
+		'Estado_Factura'
 	];
 }

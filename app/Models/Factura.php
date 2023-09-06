@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $idFactura
  * @property Carbon $Fecha_Fact
  * @property int|null $No_Orden
+ * @property string $Estado_Factura
  * @property float $Total
  * 
  * @property Collection|Producto[] $productos
@@ -37,6 +38,7 @@ class Factura extends Model
 	protected $fillable = [
 		'Fecha_Fact',
 		'No_Orden',
+		'Estado_Factura',
 		'Total'
 	];
 

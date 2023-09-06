@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $Hast
  * @property string|null $Salt
  * @property string $Estado_Usuario
- * @property int $TIPO_USUARIO_idTipo_Usuario
+ * @property int $Tipo_Usuario_idTipo_Usuario
  * @property int $PERSONA_NUIP
  * 
  * @property Persona $persona
@@ -33,7 +33,7 @@ class Usuario extends Model
 	public $timestamps = false;
 
 	protected $casts = [
-		'TIPO_USUARIO_idTipo_Usuario' => 'int',
+		'Tipo_Usuario_idTipo_Usuario' => 'int',
 		'PERSONA_NUIP' => 'int'
 	];
 
@@ -42,7 +42,7 @@ class Usuario extends Model
 		'Hast',
 		'Salt',
 		'Estado_Usuario',
-		'TIPO_USUARIO_idTipo_Usuario',
+		'Tipo_Usuario_idTipo_Usuario',
 		'PERSONA_NUIP'
 	];
 
@@ -53,7 +53,7 @@ class Usuario extends Model
 
 	public function tipo_usuario()
 	{
-		return $this->belongsTo(TipoUsuario::class, 'TIPO_USUARIO_idTipo_Usuario');
+		return $this->belongsTo(TipoUsuario::class, 'Tipo_Usuario_idTipo_Usuario');
 	}
 
 	public function factura_has_productos()

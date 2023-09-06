@@ -9,14 +9,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class DetalleProdCat1Admin
+ * Class DetalleProd1
  * 
  * @property int $Codigo
  * @property string $Nombre_Producto
  * @property string $URL_Img
  * @property string $Descripcion
- * @property int $Minimo
- * @property int $Maximo
  * @property int $Existencia
  * @property float $Precio
  * @property string $Categoria
@@ -36,16 +34,14 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Models
  */
-class DetalleProdCat1Admin extends Model
+class DetalleProd1 extends Model
 {
-	protected $table = 'detalle_prod_cat1_admin';
+	protected $table = 'detalle_prod_1';
 	public $incrementing = false;
 	public $timestamps = false;
 
 	protected $casts = [
 		'Codigo' => 'int',
-		'Minimo' => 'int',
-		'Maximo' => 'int',
 		'Existencia' => 'int',
 		'Precio' => 'float',
 		'VentaLibre' => 'int',
@@ -59,8 +55,6 @@ class DetalleProdCat1Admin extends Model
 		'Nombre_Producto',
 		'URL_Img',
 		'Descripcion',
-		'Minimo',
-		'Maximo',
 		'Existencia',
 		'Precio',
 		'Categoria',

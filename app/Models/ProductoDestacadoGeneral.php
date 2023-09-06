@@ -15,7 +15,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $Nombre_Producto
  * @property string $URL_Img
  * @property float $Precio
- * @property int $Categoria
  * @property int|null $Estrellas_Total
  * @property int|null $Total_Per_Votos
  *
@@ -30,7 +29,6 @@ class ProductoDestacadoGeneral extends Model
 	protected $casts = [
 		'Codigo' => 'int',
 		'Precio' => 'float',
-		'Categoria' => 'int',
 		'Estrellas_Total' => 'int',
 		'Total_Per_Votos' => 'int'
 	];
@@ -40,7 +38,6 @@ class ProductoDestacadoGeneral extends Model
 		'Nombre_Producto',
 		'URL_Img',
 		'Precio',
-		'Categoria',
 		'Estrellas_Total',
 		'Total_Per_Votos'
 	];

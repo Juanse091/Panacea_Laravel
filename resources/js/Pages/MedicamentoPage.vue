@@ -16,7 +16,7 @@
 <template>
     <PanaceaLayout>
 
-        <Link href="/" style="text-decoration: none;"> 
+        <Link href="#" @click="back()" style="text-decoration: none;"> 
             <BackButton></BackButton>
         </Link>
 
@@ -116,6 +116,9 @@
                     quantity.value = value;
                 }
 
+            },
+            back(){
+            window.history.back();
             }
         }
     }

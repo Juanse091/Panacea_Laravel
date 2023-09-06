@@ -4,8 +4,8 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ProductoDestacadoGeneralController;
-use App\Models\ProductoDestacadoGeneral;
 use App\Models\Producto;
+use App\Models\Categoria;
 
 
 //? VISTA HOMEPAGE
@@ -37,6 +37,15 @@ Route::get('/medicamento/{id}', function ($id, Producto $producto) {
         'nombreTipo' => $nombreTipo,
     ]);
 })->name('medicamento');
+
+
+Route::get(('/categoria/{id}'), function ($id, Producto $producto, Categoria $categoria) {
+    $producto = Producto::where('Categoria_Producto_idCategoria_Producto', $id)->get();
+    return Inertia::render('CategoriePage', [
+        'id'=> $id,
+        'productos'=>$producto,
+    ]);
+});
 
 
 //? VISTA CARRITO DE COMPRA

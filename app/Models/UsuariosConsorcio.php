@@ -9,7 +9,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class UsuariosGeneral
+ * Class UsuariosConsorcio
  * 
  * @property int $ID
  * @property string $Nombre_Usuario
@@ -17,9 +17,9 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Models
  */
-class UsuariosGeneral extends Model
+class UsuariosConsorcio extends Model
 {
-	protected $table = 'usuarios_general';
+	protected $table = 'usuarios_consorcio';
 	public $incrementing = false;
 	public $timestamps = false;
 

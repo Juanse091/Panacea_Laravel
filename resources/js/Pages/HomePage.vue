@@ -41,7 +41,7 @@
                 <div class="swiper-button-prev custom-button"></div>
                 
                     <swiper-slide  v-for="categoria in categorias" key="categoria.ID">
-                        <categorie :nombre="categoria.Nombre_Categoria" :img="categoria.URL_Img"></categorie>
+                        <categorie :nombre="categoria.Nombre_Categoria" :img="categoria.URL_Img" :id="categoria.ID"></categorie>
                     </swiper-slide>
                 </swiper>
             </div>
@@ -66,7 +66,7 @@
                     :modules="modules"
                     class="mySwiper"
                 >
-                    <swiper-slide v-for="producto in productos" key="producto.id">
+                    <swiper-slide v-for="(producto) in productos.slice(0,5)" key="producto.id">
                         <product :nombre="producto.Nombre_Producto" :img="producto.URL_Img" :precio="producto.Precio" :id="producto.Codigo"></product>
                     </swiper-slide>
                 </swiper>
@@ -128,6 +128,6 @@
     .custom-font {
         font-family: 'Montserrat', sans-serif;
     }
-    
+
 
 </style>

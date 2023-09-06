@@ -6,12 +6,12 @@
 
 </script>
 <template>
+    <Link  :href="`/categoria/${id}`" style="text-decoration: none;">
     <article class="categories">
         <img :src="`${img}`" alt="">
-        <Link  href="/Categorie" style="text-decoration: none;">
             <p class="txt_categorie"> {{ nombre }} </p>
-        </Link>
-    </article>
+        </article>
+    </Link>
 </template>
 
 <script>
@@ -19,7 +19,8 @@
         name: 'CategorieBox',
         props: [
             'nombre',
-            'img'
+            'img',
+            'id'
         ]
     }
 </script>
@@ -36,7 +37,6 @@
         background: #F8F8F8;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 30px;
-        margin: 0 20px;
         cursor: pointer;
         text-align: start;
         gap: 2rem;

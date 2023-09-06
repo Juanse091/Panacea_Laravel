@@ -6,7 +6,6 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,7 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property float $Valor_Unitario
  * @property int $Categoria_Producto_idCategoria_Producto
  * @property int $Tipo_Producto_idTipo_Producto
- * @property int|null $Presentacion_Producto_idPresentacion_Producto
+ * @property int $Presentacion_Producto_idPresentacion_Producto
  * @property string $Marca
  * @property string $Pais_Produccion
  * @property string $Cantidad
@@ -33,13 +32,11 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $Alto_Item
  * @property string|null $Ancho_Item
  * @property string|null $Profundidad_Item
- * @property string|null $user_ultmod
- * @property Carbon|null $fecha_ultmod
  * @property int|null $Calificacion
  * @property int|null $Contador
  * 
  * @property CategoriaProducto $categoria_producto
- * @property PresentacionProducto|null $presentacion_producto
+ * @property PresentacionProducto $presentacion_producto
  * @property TipoProducto $tipo_producto
  * @property Collection|Factura[] $facturas
  *
@@ -61,7 +58,6 @@ class Producto extends Model
 		'Presentacion_Producto_idPresentacion_Producto' => 'int',
 		'VentaLibre' => 'int',
 		'Unidades_Paquete' => 'int',
-		'fecha_ultmod' => 'datetime',
 		'Calificacion' => 'int',
 		'Contador' => 'int'
 	];
@@ -86,8 +82,6 @@ class Producto extends Model
 		'Alto_Item',
 		'Ancho_Item',
 		'Profundidad_Item',
-		'user_ultmod',
-		'fecha_ultmod',
 		'Calificacion',
 		'Contador'
 	];

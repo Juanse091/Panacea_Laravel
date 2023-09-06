@@ -25,7 +25,7 @@
                 <p class="info_text">+57 3228324910</p>
             </div>
             <div class="encuentranos">
-                <h2 class="info_titles">Ecuéntranos</h2>
+                <h2 class="info_titles">Encuéntranos</h2>
                 <a href="https://www.google.com/maps/search/Cra.+68c+Bis+A+%2337b+Sur-74+a+37b+Sur-2+Bogot%C3%A1+-+Colombia/@4.6043726,-74.1378526,17z/data=!3m1!4b1?entry=ttu" style="text-decoration: none;">
                     <p class="info_text">Cra. 68c Bis A #37b Sur-74 a 37b Sur-2 <br> Bogotá - Colombia</p>
                 </a>
