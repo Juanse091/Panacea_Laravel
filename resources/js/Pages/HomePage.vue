@@ -40,13 +40,12 @@
                 <div class="swiper-button-next custom-button"></div>
                 <div class="swiper-button-prev custom-button"></div>
                 
-                    <swiper-slide  v-for="categoria in categorias" key="categoria.ID">
+                    <swiper-slide  v-if="authUser" v-for="categoria in categorias" key="categoria.ID">
                         <categorie :nombre="categoria.Nombre_Categoria" :img="categoria.URL_Img" :id="categoria.ID"></categorie>
                     </swiper-slide>
                 </swiper>
             </div>
         </section>
-
         <section class="featured_section">
             <h2 class="title"> PRODUCTOS DESTACADOS</h2>
             <div class="fp_container">
@@ -73,6 +72,7 @@
             </div>
         </section>
 
+
         <section class="partners_section">
             <h2 class="title">NUESTROS SOCIOS</h2>
             <div class="partners_container">
@@ -95,12 +95,14 @@
   import categorie from '@/Components/Panacea/CategorieBox.vue'
   
   import axios from 'axios';
+
   export default {
     data(){
         return {
             productos:[],
-            categorias:[]
-        }
+            categorias:[],
+            authUser: window.authUser
+        };
     },
     mounted() {
 

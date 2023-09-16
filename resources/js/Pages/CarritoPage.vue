@@ -21,7 +21,7 @@
         <section class="resumen">
             <div class="cart_producto">
                 <div class="container_img_info">
-                    <img class="cart_img_producto" src="../../img/DolexGripa.png" alt="#">
+                    <img class="cart_img_producto" src="../../img/Mastercard_logo.png" alt="#">
                     <div class="cart_info">
                         <h2>Dolex Gripa</h2>
                         <h3>$12.200</h3>

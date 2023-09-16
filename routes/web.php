@@ -16,6 +16,13 @@ Route::get('/', function () {
 })->name('Home');
 
 
+//? VISTA LOGIN
+Route::get('/login', function () {
+    return Inertia::render('Login', [
+
+    ]);
+})->name('Login');
+
 //? VISTA MEDICAMENTOS
 
 Route::get('/medicamento/{id}', function ($id, Producto $producto) {

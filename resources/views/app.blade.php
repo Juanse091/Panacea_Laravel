@@ -24,6 +24,9 @@
         }
 
     </style>
+    <script>
+          window.authUser = @json(auth()->user()); // Esto pasa el usuario autenticado al cliente en forma de JSON
+    </script>
 </head>
 
 <body class="font-sans antialiased">
