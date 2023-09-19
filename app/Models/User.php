@@ -8,38 +8,66 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+
+use Illuminate\Database\Eloquent\Collection;
+
+/**
+ * Class Usuario
+ * 
+ * @property int $idUsuario
+ * @property string $Nombre_Usuario
+ * @property string $Hast
+ * @property string|null $Salt
+ * @property string $Estado_Usuario
+ * @property int $Tipo_Usuario_idTipo_Usuario
+ * @property int $PERSONA_NUIP
+ * 
+ * @property Persona $persona
+ * @property TipoUsuario $tipo_usuario
+ * @property Collection|FacturaHasProducto[] $factura_has_productos
+ *
+ * @package App\Models
+ */
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+	protected $table = 'usuario';
+	protected $primaryKey = 'idUsuario';
+	public $timestamps = false;
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+	protected $casts = [
+		'Tipo_Usuario_idTipo_Usuario' => 'int',
+		'PERSONA_NUIP' => 'int'
+	];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
-    ];
+	protected $fillable = [
+		'Nombre_Usuario',
+		'Hast',
+		'Salt',
+		'Estado_Usuario',
+		'Tipo_Usuario_idTipo_Usuario',
+		'PERSONA_NUIP'
+	];
+
+	public function persona()
+	{
+		return $this->belongsTo(Persona::class, 'PERSONA_NUIP');
+	}
+
+	public function tipo_usuario()
+	{
+		return $this->belongsTo(TipoUsuario::class, 'Tipo_Usuario_idTipo_Usuario');
+	}
+
+	public function factura_has_productos()
+	{
+		return $this->hasMany(FacturaHasProducto::class, 'USUARIO_idUsuario');
+	}
+
+	public function getAuthPassword()
+    {
+        return $this->Hast;
+    }
 }

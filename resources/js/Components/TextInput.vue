@@ -23,9 +23,22 @@ defineExpose({ focus: () => input.value.focus() });
 
 <template>
     <input
-        class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
+        class="py-5 pl-5 border-none focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
         :value="modelValue"
         @input="$emit('update:modelValue', $event.target.value)"
         ref="input"
     />
 </template>
+
+<style scoped>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+    input{
+        /* position: relative; */
+        background-color: #F8F8F8;
+        font-size: 22px;
+        font-family: 'Montserrat'; 
+        /* right: auto; */
+    }
+
+</style>

@@ -22,11 +22,16 @@
 
     <div class="log">
       <div class="login_container">
-        <button class="login" style="border: none;">
-          <p class="texto_login">Iniciar sesión</p>
+        <Link class="login"
+        :href="route('login')"
+        style="text-decoration: none;">
+          <p v-if="!authUser"  class="texto_login">Login</p>
+          <p v-else class="texto_login texto_nombre">{{ Nombre }}</p>
           <i class="bi bi-person-circle login_icon"></i>
-        </button>
+        </Link>
       </div>
+      <Link v-if="authUser" @click="logout" :href="route('logout')" method="POST">
+      LOGOUT</Link>
 
         <div class="shop_container">
           <button class="shoppingcart" style="border: none;"> 
@@ -50,6 +55,33 @@
   export default {
     name: 'NavBar',
     props: {},
+    data(){
+      return {
+            persona:[],
+            Nombre: "",
+            authUser
+        };
+    },
+    methods: {
+      logout(){
+        window.location.reload();
+      }
+    },
+    mounted(){
+      axios.get('/userAutenticate')
+      .then((response) => {
+          this.persona = response.data.persona;
+          if(this.persona.Nombre_Persona){
+            const nombreCompleto = this.persona.Nombre_Persona;
+            const nombreDividido = nombreCompleto.split(' ');
+            this.Nombre = nombreDividido[0];
+          }
+          this.authUser = response.data.authUser;
+      })
+      .catch((error) => {
+          console.log(error);
+      });
+    }
 }
 </script>
 

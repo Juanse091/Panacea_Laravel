@@ -9,6 +9,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
  * Class Persona
@@ -18,8 +19,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $Email
  * @property int $Telefono_Movil
  * @property int|null $Telefono_Fijo
- * @property string $Departamento
- * @property string $Municipio
+ * @property string|null $Departamento
+ * @property string|null $Municipio
  * @property string $Direccion
  * @property Carbon|null $Fecha_Nacimiento
  * @property string|null $Lugar_Nacimiento
@@ -36,7 +37,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Models
  */
-class Persona extends Model
+class Persona extends Authenticatable
 {
 	protected $table = 'persona';
 	protected $primaryKey = 'NUIP';
@@ -53,6 +54,7 @@ class Persona extends Model
 	];
 
 	protected $fillable = [
+		'NUIP',
 		'Nombre_Persona',
 		'Email',
 		'Telefono_Movil',

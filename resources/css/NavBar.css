@@ -71,7 +71,7 @@ header{
     display: flex;
     flex-direction: row;
     position: relative;
-    width: 235px;
+    width: 200px;
     left: 10%; 
 }
 
@@ -84,6 +84,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: start;
+    text-align: center;
 }
 
 .texto_login {
@@ -91,7 +92,12 @@ header{
     font-family: "Montserrat";
     font-size: 24px;
     position: relative;
-    margin-left: 15px;
+    transform: translateX(-50%);
+    left: 40%;
+
+}
+.texto_nombre{
+    justify-content: center;
 }
 
 .login_icon{

@@ -4,9 +4,8 @@
 
             import PanaceaLayout from '../Layouts/PanaceaLayout.vue';
 
-            defineProps({
-                
-            })
+            const props = defineProps(['userAuth', 'canRegister'])
+
     </script>
 
 <template>
@@ -40,7 +39,7 @@
                 <div class="swiper-button-next custom-button"></div>
                 <div class="swiper-button-prev custom-button"></div>
                 
-                    <swiper-slide  v-if="authUser" v-for="categoria in categorias" key="categoria.ID">
+                    <swiper-slide v-for="categoria in categorias" key="categoria.ID">
                         <categorie :nombre="categoria.Nombre_Categoria" :img="categoria.URL_Img" :id="categoria.ID"></categorie>
                     </swiper-slide>
                 </swiper>

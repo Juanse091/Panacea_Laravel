@@ -4,6 +4,7 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ProductoDestacadoGeneralController;
+use App\Http\Controllers\UsertController;
 use App\Models\Producto;
 use App\Models\Categoria;
 
@@ -12,27 +13,23 @@ use App\Models\Categoria;
 
 Route::get('/', function () {
     return Inertia::render('HomePage', [
+        'userAuth' => !Auth::check(),
+        'canRegister' => Route::has('register'),
     ]);
-})->name('Home');
+})->name('homepage');
 
 
-//? VISTA LOGIN
-Route::get('/login', function () {
-    return Inertia::render('Login', [
-
-    ]);
-})->name('Login');
 
 //? VISTA MEDICAMENTOS
 
 Route::get('/medicamento/{id}', function ($id, Producto $producto) {
     // Obtén el producto por su ID
     $producto = $producto->findOrFail($id);
-
+    
     // Accede a la relación "categoriaProducto" para obtener la categoría
     $categoria = $producto->categoria_producto;
     $tipo = $producto->tipo_producto;
-
+    
     // Accede al atributo "Nombre" de la tabla "CategoriaProducto"
     $nombreCategoria = $categoria->Nombre_Categoria;
     $nombreTipo = $tipo->Nombre_tipo_prod;
@@ -85,3 +82,12 @@ Route::get('/quienes_somos', function (){
 //! Controladores
 
 Route::get('/productosDest', [ProductoDestacadoGeneralController::class,'index']);
+Route::get('/userAutenticate', [UsertController::class,'index']);
+
+Route::get('/asd', function(){
+    return Inertia::render('Login', []);
+});
+
+require __DIR__.'/auth.php';
+
+
