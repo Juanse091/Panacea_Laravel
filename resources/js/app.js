@@ -10,7 +10,6 @@ import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
-// import { Ziggy } from './ziggy'; // Asegúrate de que la ruta del archivo sea correcta
 
 
 

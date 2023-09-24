@@ -13,7 +13,7 @@ class ProductoDestacadoGeneralController extends Controller
      */
     public function index()
     {
-        $prod_Dest = ProductoDestacadoGeneral::all();
+        $prod_Dest = ProductoDestacadoGeneral::all(); 
         $categorie = Categoria::all();
 
         $data =[

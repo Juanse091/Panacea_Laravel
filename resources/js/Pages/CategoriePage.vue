@@ -8,16 +8,18 @@ import PanaceaLayout from '../Layouts/PanaceaLayout.vue';
 
 defineProps({
     productos: Object,
+    categorias: Object,
 })
 
 </script>
 <template>
     <PanaceaLayout>
+        <Head title="Productos"/>
         <Link href="/" style="text-decoration: none;">
         <BackButton></BackButton>
         </Link>
 
-        <h1 class="categorie_title">MEDICAMENTOS</h1>
+        <h1 v-for="categoria in categorias " key="categoria.id" class="categorie_title">{{ categoria.Nombre_Categoria }}</h1>
 
         <section class="content">
 

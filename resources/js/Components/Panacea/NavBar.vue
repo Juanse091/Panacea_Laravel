@@ -24,14 +24,22 @@
       <div class="login_container">
         <Link class="login"
         :href="route('login')"
-        style="text-decoration: none;">
-          <p v-if="!authUser"  class="texto_login">Login</p>
-          <p v-else class="texto_login texto_nombre">{{ Nombre }}</p>
+        style="text-decoration: none;"
+        v-if="!authUser"  
+        >
+          <p class="texto_login">Login</p>
+          <p class="texto_login texto_nombre">{{ Nombre }}</p>
+          <i class="bi bi-person-circle login_icon"></i>
+        </Link>
+        <Link class="login"
+        :href="route('hubController')"
+        style="text-decoration: none;"
+        v-else
+        >
+          <p class="texto_login texto_nombre">{{ Nombre }}</p>
           <i class="bi bi-person-circle login_icon"></i>
         </Link>
       </div>
-      <Link v-if="authUser" @click="logout" :href="route('logout')" method="POST">
-      LOGOUT</Link>
 
         <div class="shop_container">
           <button class="shoppingcart" style="border: none;"> 

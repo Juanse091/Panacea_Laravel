@@ -15,6 +15,7 @@
 </script>
 <template>
     <PanaceaLayout>
+        <Head :title="`${producto.Nombre_Producto}`" />
 
         <Link href="#" @click="back()" style="text-decoration: none;"> 
             <BackButton></BackButton>

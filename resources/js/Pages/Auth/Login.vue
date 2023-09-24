@@ -54,8 +54,8 @@ const submit = () => {
                     autocomplete="username"
                 />
 
-                <InputError class="mt-2" :message="form.errors.Nombre_Usuario" />
             </div>
+            <InputError class="mt-2" :message="form.errors.Nombre_Usuario"  style="margin-left: 20px;"/>
 
             <div class="mt-5 mx-5 flex justify-center">
 
@@ -68,8 +68,6 @@ const submit = () => {
                     required
                     autocomplete="current-password"
                 />
-
-                <InputError class="mt-2" :message="form.errors.password" />
             </div>
 
             <div class="block mt-8 ml-20">

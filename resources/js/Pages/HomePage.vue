@@ -1,17 +1,21 @@
 
-    <script setup>
-            import {Head,Link} from '@inertiajs/vue3';
+<script setup>
+        import {Head,Link} from '@inertiajs/vue3';
 
-            import PanaceaLayout from '../Layouts/PanaceaLayout.vue';
+        import PanaceaLayout from '../Layouts/PanaceaLayout.vue';
 
-            const props = defineProps(['userAuth', 'canRegister'])
+        const props = defineProps(['userAuth', 'canRegister'])
 
-    </script>
+</script>
 
 <template>
 
     <Head title="Welcome"></Head>
     <PanaceaLayout>
+        <!-- <div v-if="loading" class="loading-overlay">
+            <div class="spinner"></div>
+        </div> -->
+        
         <section class="ads">
             <img src="../../img/Publicidad1.jpg" alt="#">
         </section>
@@ -100,16 +104,27 @@
         return {
             productos:[],
             categorias:[],
-            authUser: window.authUser
+            authUser: window.authUser,
+            loading: true
+
         };
     },
     mounted() {
-
         axios.get('/productosDest')
         .then((response) => {
             this.productos = response.data.productos_destacados;
             this.categorias = response.data.categorias;
         });
+        if (document.readyState === 'complete') {
+            setTimeout(() => {
+                this.stopLoading();
+            }, 1000);
+         };
+    },
+    methods: {
+        stopLoading() {
+            this.loading = false;
+        }
     },
     components: {
       Swiper,
@@ -130,5 +145,32 @@
         font-family: 'Montserrat', sans-serif;
     }
 
+    /* LOADER */
+    .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    }
+
+    .spinner {
+        border: 16px solid #f3f3f3;
+        border-top: 16px solid #3498db;
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+    }
 
 </style>

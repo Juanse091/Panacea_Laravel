@@ -6,7 +6,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\ProductoDestacadoGeneralController;
 use App\Http\Controllers\UsertController;
 use App\Models\Producto;
-use App\Models\Categoria;
+use App\Models\CategoriaProducto;
 
 
 //? VISTA HOMEPAGE
@@ -43,11 +43,13 @@ Route::get('/medicamento/{id}', function ($id, Producto $producto) {
 })->name('medicamento');
 
 
-Route::get(('/categoria/{id}'), function ($id, Producto $producto, Categoria $categoria) {
+Route::get(('/categoria/{id}'), function ($id, Producto $producto, CategoriaProducto $categoria) {
     $producto = Producto::where('Categoria_Producto_idCategoria_Producto', $id)->get();
+    $categoria = CategoriaProducto::where('idCategoria_Producto', $id)->get();
     return Inertia::render('CategoriePage', [
         'id'=> $id,
         'productos'=>$producto,
+        'categorias'=> $categoria
     ]);
 });
 
@@ -67,7 +69,7 @@ Route::get('/preguntas', function (){
     return Inertia::render('PreguntasFrecuentesPage', [
 
     ]);
-})->name('Preguntas frecuentes');
+})->name('Preguntas_frecuentes');
 
 
 //? VISTA QUIENES SOMOS
@@ -78,6 +80,25 @@ Route::get('/quienes_somos', function (){
     ]);
 })->name('Quienes somos');
 
+//* HUB 
+
+//? ADMIN
+
+Route::get('/admin', function (){
+    return Inertia::render('AdminHubPage', [
+
+    ]);
+})->middleware('auth')->name('adminHUB');
+
+//? PARTICULAR
+
+Route::get('/particulares', function (){
+    return Inertia::render('ParticularHubPage', [
+
+    ]);
+})->middleware('auth', 'hubController')->name('hubController');
+
+
 
 //! Controladores
 
@@ -87,6 +108,11 @@ Route::get('/userAutenticate', [UsertController::class,'index']);
 Route::get('/asd', function(){
     return Inertia::render('Login', []);
 });
+
+
+
+
+
 
 require __DIR__.'/auth.php';
 
