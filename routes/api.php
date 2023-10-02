@@ -19,3 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::resource('productosDest',App\Http\Controllers\ProductoDestacadoGeneralController::class);
+Route::resource('importProduct',App\Http\Controllers\editProductsController::class);

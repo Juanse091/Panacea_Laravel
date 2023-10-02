@@ -1,0 +1,43 @@
+td, tr{
+    border: 1px solid black;
+    padding: 10px;
+    font-size: 25px;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+input, select{
+    height: 25px;
+    font-size: 20px;
+}
+
+
+.productadmin_table{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.productadmin_form_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    border: none;
+    background-color: #A32B2B;
+    color: white;
+    width: 10%;
+    height: 50px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.productadmin_form_btn>p{
+    font-family: 'Montserrat';
+    font-size: 25px;
+}

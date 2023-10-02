@@ -3,12 +3,15 @@
         Link
     } from '@inertiajs/vue3';
 
+    import PanaceaLayout from '../Layouts/PanaceaLayout.vue'
+
+
     defineProps({
 
     });
 </script>
 <template>
-    <NavBar></NavBar>
+    <PanaceaLayout>
 
     <BackButton></BackButton>
 
@@ -26,7 +29,7 @@
 
     </section>
 
-    <Footer></Footer>
+    </PanaceaLayout>
 </template>
 
 <script>

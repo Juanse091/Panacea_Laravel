@@ -8,7 +8,7 @@
     });
 </script>
 <template>
-    <Link href="/" @click="back()" style="text-decoration: none;"> 
+    <Link href="/" style="text-decoration: none;"> 
         <div class="btn_back back"> 
             <h2>Volver</h2> 
             <i class="bi bi-chevron-left back_icon"></i>

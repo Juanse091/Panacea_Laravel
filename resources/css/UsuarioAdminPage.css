@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+
+.tool_bar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.admin_product_search{
+    width: 30%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-left: 10%;
+}
+
+.admin_search_container{
+    position: relative;
+    width: 98%;
+}
+
+.admin_search_bar{
+    width: 100%;
+    height: 51px;
+    border-radius: 10px;
+    background-color: #EEEEEE;
+    font-size: 24px;
+    padding-left: 10px;
+    border: none;
+}
+
+.admin_search_icon{
+    position: absolute;
+    color: #A32B2B;
+    font-size: 32px;
+    top: 19.2%;
+    right: 1.2%;
+}
+
+.select_categorie {
+    background-color: #f2f2f2;
+    font-family: 'Montserrat';
+    color: #333; 
+    padding: 5px; 
+    margin-left: 2%;
+}
+
+.add_product{
+    border: none;
+    background-color: #A32B2B;
+    color: white;
+    height: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 2%;
+    padding: 5px;
+}
+
+.add_product>p{
+    font-family: 'Montserrat';
+    font-size: 18px;
+}
+
+@media (max-width: 500px) {
+
+    .tool_bar{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+
+    .admin_product_search{
+        width: 60%;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        margin-left: 2%;
+    }
+    
+    .admin_search_container{
+        position: relative;
+        width: 100%;
+    }
+    
+    .admin_search_bar{
+        width: 100%;
+        height: 32px;
+        border-radius: 5px;
+        background-color: #EEEEEE;
+        font-size: 18px;
+        padding-left: 10px;
+        border: none;
+        margin-bottom: 20px;
+    }
+    
+    .admin_search_icon{
+        top: 15%;
+        left: 92%;
+        font-size: 18px;
+    }
+
+    .select_categorie {
+        background-color: #f2f2f2;
+        font-family: 'Montserrat';
+        color: #333; 
+        padding: 3px; 
+        margin-left: 3%;
+        width: 130px;
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    
+    .add_product{
+        border: none;
+        background-color: #A32B2B;
+        color: white;
+        height: 32px;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-left: 2%;
+        padding: 5px;
+    }
+    
+    .add_product>p{
+        font-family: 'Montserrat';
+        font-size: 18px;
+    }
+    
+}

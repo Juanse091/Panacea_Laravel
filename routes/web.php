@@ -3,11 +3,14 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Http\Controllers\ProductoDestacadoGeneralController;
-use App\Http\Controllers\UsertController;
+
 use App\Models\Producto;
 use App\Models\CategoriaProducto;
 
+use App\Http\Controllers\ProductoDestacadoGeneralController;
+use App\Http\Controllers\UsertController;
+use App\Http\Controllers\editProductsController;
+use App\Http\Controllers\productoAdminController;
 
 //? VISTA HOMEPAGE
 
@@ -80,15 +83,27 @@ Route::get('/quienes_somos', function (){
     ]);
 })->name('Quienes somos');
 
-//* HUB 
 
-//? ADMIN
+//! ADMIN
 
-Route::get('/admin', function (){
-    return Inertia::render('AdminHubPage', [
 
-    ]);
-})->middleware('auth')->name('adminHUB');
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+    Route::get('/', function () {
+        return Inertia::render('AdminHubPage');
+    })->name('adminHUB');
+
+    Route::group(['prefix' => 'Productos'], function(){
+        Route::get('/', function () {
+            return Inertia::render('ProductoAdminPage', [
+                'ruta_productos' => route('productoAdmin'),
+            ]);
+        })->name('adminHUB.Productos');
+
+        Route::get('/editarProductos/{accion?}', function () {
+            return Inertia::render('EditProductoPage');
+        })->name('adminHUB.editarProductos');
+    });
+});
 
 //? PARTICULAR
 
@@ -103,11 +118,19 @@ Route::get('/particulares', function (){
 //! Controladores
 
 Route::get('/productosDest', [ProductoDestacadoGeneralController::class,'index']);
+
 Route::get('/userAutenticate', [UsertController::class,'index']);
 
-Route::get('/asd', function(){
-    return Inertia::render('Login', []);
-});
+Route::post('importProduct', [editProductsController::class,'store'])->name('importProduct');
+
+Route::post('/editProduct/{id}', [productoAdminController::class,'update'])->name('editProduct');
+
+
+Route::post('productoAdmin', [productoAdminController::class, 'store'])->name('productoAdmin');
+
+Route::delete('/producto/{id}', [productoAdminController::class, 'destroy'])->name('producto.destroy');
+
+Route::post('/producto/{id}', [productoAdminController::class, 'show'])->name('producto.show');
 
 
 
