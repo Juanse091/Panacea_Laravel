@@ -39,7 +39,9 @@
 
         <ProductoAdmin v-for="producto in filteredProducts" :key="producto.Codigo_Producto" :name="producto.Nombre_Producto"
             :img="producto.Imagen_Prod" :SA="producto.Existencia" :ID="producto.Codigo_Producto"
-            @delete-product="deleteProduct(producto.Codigo_Producto)"></ProductoAdmin>
+            @delete-product="deleteProduct(producto.Codigo_Producto)">
+        </ProductoAdmin>
+        
     </PanaceaLayout>
 </template>
 
@@ -61,7 +63,7 @@
         },
         computed: {
         filteredProducts() {
-            return this.productos.filter(producto => producto.Nombre_Producto.includes(this.searchQuery));
+            return this.productos.filter(producto => producto.Nombre_Producto.toLowerCase().includes(this.searchQuery.toLowerCase()));
         },
     },
         components: {

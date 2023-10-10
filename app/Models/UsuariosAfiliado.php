@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property int $ID
  * @property string $Nombre_Usuario
- * @property string $Tipo usuario
+ * @property string $Tipo_usuario
  *
  * @package App\Models
  */
@@ -30,6 +30,6 @@ class UsuariosAfiliado extends Model
 	protected $fillable = [
 		'ID',
 		'Nombre_Usuario',
-		'Tipo usuario'
+		'Tipo_usuario'
 	];
 }

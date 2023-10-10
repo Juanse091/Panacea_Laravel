@@ -8,6 +8,11 @@
     defineProps({
 
     });
+
+    function logout() {
+        localStorage.clear();
+        window.location.href = 'logout';
+    }
 </script>
 
 <template>
@@ -24,19 +29,19 @@
                 <p class="adminhub_description">ADMINISTRA, AGREGA O ELIMINA PRODUCTOS</p>
             </Link>
 
-            <Link class="adminhub_card adminhub_usuarios" href="/UsuarioAdminPage">
+            <Link class="adminhub_card adminhub_usuarios" :href="route('adminHUB.Usuarios')">
                 <h2>USUARIOS</h2>
                 <p class="adminhub_description">ADMINISTRA, AGREGA O ELIMINA USUARIOS</p>
             </Link>
         </div>
 
         <div class="envios_logout_container">
-            <Link class="adminhub_card adminhub_envios" href="/UsuarioAdminPage">
+            <Link class="adminhub_card adminhub_envios" href="route('')">
                 <h2>ENVIOS</h2>
                 <p class="adminhub_description">ADMINISTRA Y CAMBIA DE STATUS LOS ENVIOS</p>
             </Link>
 
-            <Link class="adminhub_card particularhub_logout" :href="route('logout')" method="POST">
+            <Link class="adminhub_card particularhub_logout" @click="logout()" href="#" method="POST">
                 <h2>SALIR</h2>
                 <p class="adminhub_description">CIERRA TU SESIÓN</p>
             </Link>

@@ -49,14 +49,15 @@
 }
 
 .add_product{
+    font-family: 'Montserrat';
     border: none;
     background-color: #A32B2B;
     color: white;
-    height: 32px;
+    width: 100%;
     border-radius: 8px;
     cursor: pointer;
-    margin-left: 2%;
-    padding: 5px;
+    margin-left: 10%;
+    padding: 10px;
 }
 
 .add_product>p{

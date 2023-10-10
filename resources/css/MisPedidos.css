@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+.mpedidos_title{
+    font-size: 48px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    color: #A32B2B;
+    display: flex;
+    justify-content: left;
+    margin-left: 12%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+
+@media (max-width: 500px) {
+    
+    .mpedidos_title{
+        font-size: 28px;
+        font-family: 'Montserrat';
+        font-weight: 700;
+        color: #A32B2B;
+        display: flex;
+        margin-left: 4%;
+        margin-top: 30px;
+        margin-bottom: 35px;
+    }
+}

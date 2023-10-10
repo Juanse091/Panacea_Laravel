@@ -4,21 +4,32 @@
             <div class="container_img_ainfo">
                 <i class="bi bi-person-circle afiliado_identifier"></i>
                 <div class="afiliado_info">
-                    <h2>Andrés León</h2>
+                    <h2>{{ Nombre }}</h2>
                     <div class="afiliado_id">
                         <h2>ID:&nbsp</h2>
-                        <h2>1005260550</h2>
+                        <h2>{{ ID }}</h2>
                     </div>
                 </div>
             </div>
             <div class="container_tipo_icons">
-                <h2>Afiliado</h2>
+                <h2>{{ Tipo }}</h2>
                 <i class="bi bi-pencil-fill afiliado_pencil_icon"></i>
                 <i class="bi bi-trash-fill afiliado_trash_icon"></i>
             </div>
         </div>
     </section>
 </template>
+
+<script>
+    export default {
+        name: 'UsersAdmin',
+        props: [
+            'Nombre',
+            'ID',
+            'Tipo'
+        ]
+    }
+</script>
 
 <style scoped>
 .user_afiliado_container{
@@ -175,9 +186,3 @@
 
 </style>
 
-<script>
-    export default {
-        name: 'UsersAdmin',
-        props: {}
-    }
-</script>

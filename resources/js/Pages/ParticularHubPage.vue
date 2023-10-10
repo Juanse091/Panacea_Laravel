@@ -9,6 +9,10 @@
     defineProps({
 
     });
+
+    function logout() {
+        localStorage.clear();
+    }
 </script>
 <template>
     <PanaceaLayout>
@@ -17,12 +21,12 @@
 
     <section class="particularhub_opcion">
 
-        <Link class="particularhub_card particularhub_envios" to="/MisPedidos">
+        <Link class="particularhub_card particularhub_envios" :href="route('particularHUB.Pedidos')">
             <h2>ENVIOS</h2>
             <p class="particularhub_description">REVISA TUS PEDIDOS Y EL STATUS DE ESTOS</p>
         </Link>
 
-        <Link class="particularhub_card particularhub_logout" :href="route('logout')" method="POST">
+        <Link class="particularhub_card particularhub_logout" @click="logout()" :href="route('logout')" method="POST">
             <h2>SALIR</h2>
             <p class="particularhub_description">CIERRA TU SESIÓN</p>
         </Link>

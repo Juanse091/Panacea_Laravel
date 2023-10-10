@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductoDestacadoGeneralController;
 use App\Http\Controllers\UsertController;
 use App\Http\Controllers\editProductsController;
 use App\Http\Controllers\productoAdminController;
+use App\Http\Controllers\usuarioAdminController;
 
 //? VISTA HOMEPAGE
 
@@ -25,13 +26,14 @@ Route::get('/', function () {
 
 //? VISTA MEDICAMENTOS
 
-Route::get('/medicamento/{id}', function ($id, Producto $producto) {
+Route::get('/medicamento/id={id}', function ($id, Producto $producto) {
     // Obtén el producto por su ID
     $producto = $producto->findOrFail($id);
     
     // Accede a la relación "categoriaProducto" para obtener la categoría
     $categoria = $producto->categoria_producto;
     $tipo = $producto->tipo_producto;
+    $existencia = $producto->Existencia;
     
     // Accede al atributo "Nombre" de la tabla "CategoriaProducto"
     $nombreCategoria = $categoria->Nombre_Categoria;
@@ -42,6 +44,7 @@ Route::get('/medicamento/{id}', function ($id, Producto $producto) {
         'producto' => $producto,
         'nombreCategoria' => $nombreCategoria,
         'nombreTipo' => $nombreTipo,
+        'existencia' => $existencia
     ]);
 })->name('medicamento');
 
@@ -92,7 +95,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         return Inertia::render('AdminHubPage');
     })->name('adminHUB');
 
-    Route::group(['prefix' => 'Productos'], function(){
+    Route::group(['prefix' => 'productos'], function(){
         Route::get('/', function () {
             return Inertia::render('ProductoAdminPage', [
                 'ruta_productos' => route('productoAdmin'),
@@ -103,35 +106,58 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
             return Inertia::render('EditProductoPage');
         })->name('adminHUB.editarProductos');
     });
+
+    Route::group(['prefix' => 'usuarios'], function(){
+        Route::get('/', function () {
+            return Inertia::render('UsuarioAdminPage');
+        })->name('adminHUB.Usuarios');
+
+        Route::get('/editarUsuarios/{accion?}', function () {
+            return Inertia::render('EditUsuarioPage');
+        })->name('adminHUB.editarUsuarios');
+    });
 });
 
-//? PARTICULAR
+//! PARTICULAR
+Route::group(['prefix'=> 'particular'], function () {
+    Route::get('/', function () {
+        return Inertia::render('ParticularHubPage');
+    })->name('hubController')->middleware('hubController');
 
-Route::get('/particulares', function (){
-    return Inertia::render('ParticularHubPage', [
+    Route::group(['prefix'=> 'pedidos'], function () {
+        Route::get('/', function () {
+            return Inertia::render('MisPedidosPage');
+        })->name('particularHUB.Pedidos');
+    });
+})->middleware('auth');
 
-    ]);
-})->middleware('auth', 'hubController')->name('hubController');
 
-
-
-//! Controladores
+//? CONTROLADORES
 
 Route::get('/productosDest', [ProductoDestacadoGeneralController::class,'index']);
 
 Route::get('/userAutenticate', [UsertController::class,'index']);
 
-Route::post('importProduct', [editProductsController::class,'store'])->name('importProduct');
 
-Route::post('/editProduct/{id}', [productoAdminController::class,'update'])->name('editProduct');
+//* Controladores de los productos_admin
+
+Route::post('importProduct', [editProductsController::class,'store'])->name('importProduct'); //! Insertar producto a la base de datos
+
+Route::post('/editProduct/{id}', [productoAdminController::class,'update'])->name('editProduct'); //! Editar producto en la base de datos
+
+Route::post('productoAdmin', [productoAdminController::class, 'store'])->name('productoAdmin'); //! Visualizar los productos por categoria
+
+Route::delete('/producto/{id}', [productoAdminController::class, 'destroy'])->name('producto.destroy');  //! Eliminar producto seleccionado
+
+Route::post('/producto/{id}', [productoAdminController::class, 'show'])->name('producto.show'); //! Mostrar el producto para editar
 
 
-Route::post('productoAdmin', [productoAdminController::class, 'store'])->name('productoAdmin');
+//* Controladores de los usuarios_admin
 
-Route::delete('/producto/{id}', [productoAdminController::class, 'destroy'])->name('producto.destroy');
+Route::post('/usuariosAdmin', [usuarioAdminController::class, 'store'])->name('usuariosAdmin'); //! Visualizar los usuarios por categoria
 
-Route::post('/producto/{id}', [productoAdminController::class, 'show'])->name('producto.show');
-
+Route::post('/editUsuarios/{id}', [usuarioAdminController::class, 'update'])->name('editUsuarios');
+ 
 
 
 

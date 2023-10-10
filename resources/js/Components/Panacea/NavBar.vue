@@ -2,10 +2,22 @@
     import {
         Link
     } from '@inertiajs/vue3';
+    import { onUpdated, ref } from 'vue';
 
     defineProps({
 
     });
+
+    var quantityProduts = ref(localStorage.getItem('quantityProduts') || 0);
+
+
+    onUpdated(() => {
+      if (localStorage.getItem('quantityProduts')) {
+        console.log(localStorage.getItem('quantityProduts'));
+        var quantityProduts = ref(localStorage.getItem('quantityProduts')); 
+      };
+    });
+
 </script>
 <template>
   <header>
@@ -48,7 +60,7 @@
             </Link>
         </button>
           <div class="counter">
-              <p class="quant">0</p>
+              <p class="quant">{{quantityProduts}}</p>
           </div>
         </div>
     </div>

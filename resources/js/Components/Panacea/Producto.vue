@@ -15,7 +15,7 @@
             <i class="bi bi-star-fill star_icon"></i>
         </div>
         <p>${{ precio }}</p>
-        <Link :href="`/medicamento/${id}`">
+        <Link :href="`/medicamento/id=${id}`">
             <button class="btn_buy">Comprar</button>
         </Link>
     </article>
