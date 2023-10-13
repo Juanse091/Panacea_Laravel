@@ -59,6 +59,7 @@
             return {
                 searchQuery: '',
                 productos: [],
+                todos = false
             }
         },
         computed: {

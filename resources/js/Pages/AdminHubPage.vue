@@ -11,7 +11,6 @@
 
     function logout() {
         localStorage.clear();
-        window.location.href = 'logout';
     }
 </script>
 
@@ -41,7 +40,7 @@
                 <p class="adminhub_description">ADMINISTRA Y CAMBIA DE STATUS LOS ENVIOS</p>
             </Link>
 
-            <Link class="adminhub_card particularhub_logout" @click="logout()" href="#" method="POST">
+            <Link class="adminhub_card particularhub_logout" @click="logout()" :href="route('logout')" method="POST">
                 <h2>SALIR</h2>
                 <p class="adminhub_description">CIERRA TU SESIÓN</p>
             </Link>

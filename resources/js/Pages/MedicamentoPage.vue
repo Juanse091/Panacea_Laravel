@@ -10,7 +10,7 @@ import { onMounted, ref } from 'vue'
 import axios from 'axios'
 
 
-defineProps({
+const define = defineProps({
     id: Object,
     producto: Object,
     nombreCategoria: Object,
@@ -21,9 +21,10 @@ defineProps({
 const persona = ref(null)
 const authUser = ref(null)
 const Nombre = ref(null)
-
+var nombre = define.producto.Nombre_Producto;
+var precio = define.producto.Valor_Unitario;
+var url = define.producto.Imagen_Prod;
 var cantidad = 1;
-
 let path = window.location.pathname;
 var id = path.split('=').pop();
 
@@ -69,6 +70,7 @@ function back() {
 
 
 
+
 onMounted(() => {
   axios.get('/userAutenticate')
     .then((response) => {
@@ -91,9 +93,9 @@ function OnSudmit() {
         let quantProdcts = parseInt(localStorage.getItem('quantityProduts')) || 0;
         quantProdcts = quantProdcts + 1;
         localStorage.setItem('quantityProduts', quantProdcts.toString());
-    
+
         let productList = JSON.parse(localStorage.getItem('productList')) || [];
-        productList.push({ id: id, quantity: cantidad });
+        productList.push({ id: id, nombre: nombre,quantity: cantidad, imagen: url, valor: precio});
         localStorage.setItem('productList', JSON.stringify(productList));
         console.log(localStorage.getItem('productList'));
     }else{

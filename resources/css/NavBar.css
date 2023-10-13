@@ -137,6 +137,7 @@ header{
     width: 20%;
     border-radius: 100%;
     background-color: white;
+    border: solid 1px black;
     position: absolute;
     bottom:0px;
     right:15px;
@@ -145,6 +146,7 @@ header{
 .quant{
     font-family: "Montserrat";
     font-weight: bold;
+    text-align: center;
 }
 
 
