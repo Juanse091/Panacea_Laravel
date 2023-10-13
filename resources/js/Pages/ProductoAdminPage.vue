@@ -59,7 +59,6 @@
             return {
                 searchQuery: '',
                 productos: [],
-                todos = false
             }
         },
         computed: {
@@ -103,7 +102,7 @@
         },
         mounted() {
             var self = this;
-            $(document).ready(function () {
+            $(document).ready(function () { 
                 $('#categorie').change(function () {
                     self.selectedCategorie = $(this).val();
                     self.fetchProducts(self.selectedCategorie);
