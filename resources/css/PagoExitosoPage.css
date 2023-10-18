@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+.pagoexitoso{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 12rem;
+}
+
+.compra_check{
+    font-size: 15rem;
+    color: #A32B2B;
+}
+
+.pagoexitoso>h1{
+    font-size: 48px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    color: black;
+    margin-bottom: 15px;
+}
+
+.volver{
+    font-size: 15px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+}

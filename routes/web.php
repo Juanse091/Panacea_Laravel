@@ -12,6 +12,8 @@ use App\Http\Controllers\UsertController;
 use App\Http\Controllers\editProductsController;
 use App\Http\Controllers\productoAdminController;
 use App\Http\Controllers\usuarioAdminController;
+use App\Http\Controllers\ventasController;
+
 
 //? VISTA HOMEPAGE
 
@@ -68,6 +70,18 @@ Route::get('/carrito', function (){
     ]);
 })->name('Carrito de compra');
 
+//? VISTA CHECKOUT
+Route::get('/checkout', function () {
+    return Inertia::render('Envio_PagoPage', [
+    ]);
+})->name('CheckOut');
+
+//? VISTA PAGO CONFIRMADO
+Route::get('/pagoExitoso', function () {
+    return Inertia::render('PagoExitosoPage', [
+
+    ]);
+})->name('pagoExitoso');
 
 //? VISTA PREGUNTAS FRECUENTES
 
@@ -157,9 +171,13 @@ Route::post('/producto/{id}', [productoAdminController::class, 'show'])->name('p
 Route::post('/usuariosAdmin', [usuarioAdminController::class, 'store'])->name('usuariosAdmin'); //! Visualizar los usuarios por categoria
 
 Route::post('/editUsuarios/{id}', [usuarioAdminController::class, 'update'])->name('editUsuarios');
+
+
+//* Controlador de las ventas
+
+Route::post('/venta', [ventasController::class,'venta'])->name('ventas'); //! Se encarga de actualizar la existencia de los productos en la
+                                                                          //! db a la hora de realizar una venta
  
-
-
 
 
 

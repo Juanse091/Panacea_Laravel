@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Persona;
@@ -15,6 +16,8 @@ use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
 use Inertia\Response;
+use Illuminate\Http\JsonResponse;
+
 
 class RegisteredUserController extends Controller
 {
@@ -32,7 +35,7 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {   
         $persona = Persona::create([
             'NUIP' => intval($request->NUIP),
@@ -45,7 +48,7 @@ class RegisteredUserController extends Controller
 
         
         
-        return response()->json(['message' => 'ok']);
+        return back();
     }
 
     public function store_user(Request $request): RedirectResponse

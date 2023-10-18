@@ -118,7 +118,7 @@ function OnSudmit() {
         <BackButton></BackButton>
         </Link>
 
-        <form action="" @submit.prevent="OnSudmit">
+        <form action="" @submit="OnSudmit">
             <section class="medicamento">
                 <img class="img_medicamento" :src="`${producto.Imagen_Prod}`" alt="#">
                 <div class="info_medicamento">
