@@ -11,13 +11,13 @@
             <input type="text" class="envio_direccion_input" placeholder="Dirección" maxlength="200" required>
             <div class="name_id_container">
                 <input type="text" class="envio_nombre_input" placeholder="Nombre" maxlength="100" required>
-                <input type="number" class="envio_documento_input" placeholder="Documento" maxlength="10" required>
+                <input type="text" class="envio_documento_input" placeholder="Documento" maxlength="10" required>
             </div>
             <div class="dept_ciudad_container">
                 <input type="text" class="envio_departamento_input" placeholder="Departamento" maxlength="45" required>
                 <input type="text" class="envio_ciudad_input" placeholder="Ciudad" maxlength="45" required>
             </div>
-            <input type="number" class="envio_telefono_input" placeholder="Teléfono" maxlength="10" required>
+            <input type="text" class="envio_telefono_input" placeholder="Teléfono" maxlength="10" required>
         </section>
 
         <section class="pago">

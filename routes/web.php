@@ -100,6 +100,13 @@ Route::get('/quienes_somos', function (){
     ]);
 })->name('Quienes somos');
 
+//? VISTA POLITICAS
+
+Route::get('/politicas', function (){
+    return Inertia::render('PoliticasPage', [
+    ]);
+})->name('Politicas');
+
 
 //! ADMIN
 

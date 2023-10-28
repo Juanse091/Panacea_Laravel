@@ -16,7 +16,7 @@
                     </Link>
 
                     <Link href="/politicas" class="info_text">
-                        <p>Politicas y terminos de uso</p>
+                        <p>Politicas</p>
                     </Link>
             </div>
             <div class="contactanos">
